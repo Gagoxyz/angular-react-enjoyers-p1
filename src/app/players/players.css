@@ -1,0 +1,24 @@
+.list-group-item {
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Hover: fondo claro + texto negro */
+.list-group-item:hover {
+  background-color: #f8f9fa;
+  color: black; /* color del <li> */
+
+  /* Aplicar a todos los hijos directos */
+  strong, small, div, span {
+    color: black;
+  }
+}
+
+/* Jugador seleccionado */
+.list-group-item.active {
+  background-color: #0d6efd;
+  color: rgb(255, 255, 255);
+
+  strong, small, div, span {
+    color: white;
+  }
+}
