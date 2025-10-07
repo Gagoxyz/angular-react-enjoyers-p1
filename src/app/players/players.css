@@ -1,24 +1,26 @@
-.list-group-item {
-  transition: background-color 0.15s ease, color 0.15s ease;
+.player-img {
+  object-fit: cover;
+  object-position: center top; /* centra y muestra más la cara */
+  transition: transform 0.2s ease;
 }
 
-/* Hover: fondo claro + texto negro */
-.list-group-item:hover {
-  background-color: #f8f9fa;
-  color: black; /* color del <li> */
-
-  /* Aplicar a todos los hijos directos */
-  strong, small, div, span {
-    color: black;
-  }
+.player-card:hover .player-img {
+  transform: scale(1.05);
 }
 
-/* Jugador seleccionado */
-.list-group-item.active {
-  background-color: #0d6efd;
-  color: rgb(255, 255, 255);
+.player-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-  strong, small, div, span {
-    color: white;
-  }
+.player-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.player-card.border-primary {
+  border-width: 2px !important;
+}
+
+.player-component {
+  background-color: #0A7EA4;
 }

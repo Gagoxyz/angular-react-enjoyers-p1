@@ -1,25 +1,36 @@
 <div class="card shadow-sm">
-  <div class="card-header bg-primary text-white">
+  <!-- Encabezado -->
+  <div class="card-header player-component text-white">
     <h5 class="mb-0">Listado de Jugadores</h5>
   </div>
 
-  <ul class="list-group list-group-flush">
-    @for (player of players; track player.id) {
-      <li
-        class="list-group-item d-flex justify-content-between align-items-center"
-        [class.active]="player.id === selectedPlayerId"
-        (click)="selectPlayer(player)"
-        style="cursor: pointer;"
-      >
-        <div>
-          <strong>{{ player.nombre }} {{ player.apellidos }}</strong><br>
-          <small>
-            {{ player.posicion }} · {{ player.edad }} años · {{ player.altura }} cm
-          </small>
-        </div>
+  <!-- Contenido -->
+  <div class="card-body">
+    <div class="row g-3">
+      @for (player of players; track player.id) {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div
+            class="card h-100 text-center shadow-sm player-card"
+            [class.border-primary]="player.id === selectedPlayerId"
+            (click)="selectPlayer(player)"
+            style="cursor: pointer;"
+          >
+            <!-- Imagen del jugador -->
+            <div class="ratio ratio-1x1 overflow-hidden">
+              <img
+                [src]="player.multimedia[0]"
+                class="card-img-top img-fluid player-img"
+                alt="{{ player.nombre }}"
+              />
+            </div>
 
-        <span class="badge bg-secondary">{{ player.id }}</span>
-      </li>
-    }
-  </ul>
+            <!-- Nombre del jugador -->
+            <div class="card-body p-2">
+              <h6 class="card-title mb-0">{{ player.nombre }} {{ player.apellidos }}</h6>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
 </div>
