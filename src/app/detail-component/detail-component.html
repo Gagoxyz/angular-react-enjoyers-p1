@@ -1,1 +1,17 @@
-<p>detail-component works!</p>
+<div class="detail-container" *ngIf="player; else empty">
+  <div class="detail-card">
+    <img [src]="player.image" [alt]="player.name" class="detail-image">
+    <div class="detail-info">
+      <h3>{{ player.name }}</h3>
+      <p><strong>Posición:</strong> {{ player.position }}</p>
+      <p><strong>Edad:</strong> {{ player.age }} años</p>
+      <p><strong>Altura:</strong> {{ player.altura }} cm</p>
+    </div>
+  </div>
+  <p class="helper-text">Haz clic en otro jugador para cambiar el detalle.</p>
+  
+</div>
+
+<ng-template #empty>
+  <p class="helper-text">Selecciona un jugador para ver su detalle.</p>
+</ng-template>

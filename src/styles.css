@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  /* Background image served from public/images */
+  background-image: url('/images/estadio.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-color: #0b0b0b; /* fallback */
+  color: #ffffff;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  min-height: 100vh;
+}
+
+.app-shell {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px;
+}
+
+.sidebar {
+  width: 220px;
+  background: rgba(0,0,0,0.55);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.sidebar h1 {
+  font-size: 18px;
+  margin: 0 0 12px 0;
+}
+
+.nav-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-button {
+  display: inline-block;
+  text-align: left;
+  text-decoration: none;
+  background-color: #0d6efd;
+  color: #ffffff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.nav-button:hover {
+  background-color: #0b5ed7;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  background: rgba(0,0,0,0.45);
+  border-radius: 8px;
+  padding: 16px;
+}

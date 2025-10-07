@@ -1,0 +1,30 @@
+.detail-container {
+  margin-top: 16px;
+  text-align: left;
+}
+
+.detail-card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: rgba(255,255,255,0.9);
+  color: #111;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.detail-image {
+  width: 160px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.detail-info h3 {
+  margin: 0 0 6px 0;
+}
+
+.helper-text {
+  margin-top: 8px;
+  opacity: 0.85;
+}
+

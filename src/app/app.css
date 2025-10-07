@@ -1,0 +1,65 @@
+/* Layout base */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  width: 100%;
+}
+
+/* Top navigation bar */
+.top-nav {
+  display: flex;
+  align-items: right;
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.top-nav .logo {
+  display: flex;
+  align-items: right;
+  gap: 10px;
+}
+
+.top-nav .logo img {
+  width: 28px;
+  height: 28px;
+}
+
+.top-nav .brand {
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 16px; /* links pegados a la izquierda junto al logo */
+}
+
+.nav-button {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: #007bff;
+  color: white;
+}
+
+.nav-button:hover {
+  background-color: #0056b3;
+}
+
+.content {
+  padding: 0; /* ocupación de ancho completo */
+  width: 100%;
+}
+
+

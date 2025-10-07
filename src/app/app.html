@@ -1,39 +1,17 @@
-<!DOCTYPE html> 
-<html lang="es"> 
-<head> 
-    <meta charset="utf-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <title>My Svelte App</title> 
-    <link rel="stylesheet" href="/global.css"> 
-    <script defer src="/build/bundle.js"></script> 
-    <style>
-        /* Usar la imagen estadio.png como fondo de toda la página */
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-        body {
-            /* la ruta usa /imagenes en la carpeta public */
-            background-image: url('/images/estadio.png');
-            background-repeat: no-repeat;
-            background-position: center top;
-            background-size: cover; /* cubre toda la ventana */
-            /* color de respaldo y contraste para el texto */
-            background-color: #0b0b0b;
-            color: #ffffff;
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-        }
-        /* Contenedor principal para centrar el contenido y mejorar legibilidad sobre el fondo */
-        #svelte-app {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-            background: rgba(0,0,0,0.5); /* semitransparente para mejorar contraste */
-            border-radius: 8px;
-        }
-    </style>
-</head> 
-<body> 
-    <div id="svelte-app"> <h1>Equipo de Basket Angular-React Enjoyers </h1></div>
-</body>
-</html>
+<div class="app-shell">
+  <section class="top-nav" role="navigation" aria-label="Navegación principal">
+    <div class="logo">
+      <img src="/favicon.ico" alt="Logo Equipo de Basket" />
+      <span class="brand">Equipo de Basket</span>
+    </div>
+    <nav class="nav-links">
+      <a class="nav-button" routerLink="/">Inicio</a>
+      <a class="nav-button" routerLink="/jugadores">Jugadores</a>
+      <a class="nav-button" routerLink="/estadisticas">Estadísticas</a>
+      <a class="nav-button" routerLink="/media">Media</a>
+    </nav>
+  </section>
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
