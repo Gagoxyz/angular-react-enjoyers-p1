@@ -24,3 +24,9 @@
 .player-component {
   background-color: #0A7EA4;
 }
+
+.player-card.border-primario {
+  border-color: var(--color-primario);
+  border-width: 3px !important; /* Aumenta el grosor del borde */
+  border-style: solid;           /* Asegura que sea sólido */
+}

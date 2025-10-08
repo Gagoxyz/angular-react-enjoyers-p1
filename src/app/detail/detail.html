@@ -1,1 +1,40 @@
-<p>detail works!</p>
+<!-- Card principal -->
+<div class="card shadow-lg p-3" 
+     style="background-color: #FDFDFD; color: var(--color-fondo-oscuro); border-radius: 1rem; max-width: 700px; width: 100%;">
+
+  <!-- Header del diálogo -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="fw-bold mb-0" style="color: var(--color-primario);">
+      {{ player?.nombre }} {{ player?.apellidos }}
+    </h2>
+    <!-- Botón cerrar -->
+    <button type="button" class="btn-close" aria-label="Cerrar" (click)="dialogRef.close()"></button>
+  </div>
+
+  <!-- Contenido: imagen e información -->
+  <div class="row">
+    
+    <!-- Imagen del jugador -->
+    <div class="col-md-6">
+      <img
+        [src]="player?.multimedia?.[0]"
+        [alt]="player?.nombre"
+        class="img-fluid rounded shadow-sm"
+        style="max-width: 220px; object-fit: cover; border: 2px solid var(--color-primario);"
+      />
+    </div>
+
+    <!-- Información del jugador -->
+    <div class="col-md-6">
+      <p class="mb-2"><strong>Posición:</strong> {{ player?.posicion }}</p>
+      <p class="mb-2"><strong>Edad:</strong> {{ player?.edad }} años</p>
+      <p class="mb-2"><strong>Altura:</strong> {{ player?.altura }} cm</p>
+    </div>
+
+  </div>
+
+  <div class="row text-center">
+    <app-media></app-media>
+  </div>
+
+</div>

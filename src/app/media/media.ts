@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Player } from '../models/player.model';
 
 @Component({
   selector: 'app-media',
@@ -6,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './media.html',
   styleUrl: './media.css'
 })
-export class Media {
-
+export class MediaComponent {
+  player: Player | undefined;
 }
