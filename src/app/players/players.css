@@ -30,3 +30,7 @@
   border-width: 3px !important; /* Aumenta el grosor del borde */
   border-style: solid;           /* Asegura que sea sólido */
 }
+
+.prueba1 {
+  background: #00000000;
+}

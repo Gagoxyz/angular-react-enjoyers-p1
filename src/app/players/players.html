@@ -1,7 +1,23 @@
-<div class="card shadow-sm">
+<div class="card shadow-sm prueba1">
+
+  <div class="container">
+      <!-- Filtros de búsqueda -->
+  <div *ngIf="showList" class="filter-container">
+    <input
+      type="text"
+      placeholder="Buscar por nombre"
+      [(ngModel)]="filterName"
+    />
+    <input
+      type="number"
+      placeholder="Altura mínima"
+      [(ngModel)]="filterHeight"
+    />
+  </div>
+  </div>
   <!-- Encabezado -->
-  <div class="card-header player-component text-white">
-    <h5 class="mb-0">Listado de Jugadores</h5>
+  <div class="card-header player-component text-white prueba1">
+    <h3 class="mb-0">Listado de Jugadores</h3>
   </div>
 
   <!-- Contenido -->

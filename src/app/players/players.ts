@@ -4,10 +4,15 @@ import { Player } from '../models/player.model';
 import { PLAYERS } from '../data/players';
 import { DetailComponent } from '../detail/detail';
 
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { PlayerFilterPipe } from '../player-filter-pipe';
+
 @Component({
   selector: 'app-players',
   templateUrl: './players.html',
-  styleUrls: ['./players.css']
+  styleUrls: ['./players.css'],
+  imports: [CommonModule, FormsModule, DetailComponent, PlayerFilterPipe]
 })
 export class PlayersComponent {
   players: Player[] = PLAYERS;
@@ -27,4 +32,11 @@ export class PlayersComponent {
       this.selectedPlayerId = null;
     });
   }
+
+  // Variables para filtros
+  filterName: string = '';
+  filterHeight: number | null = null;
+
+  // Mostrar u ocultar lista
+  showList = true;
 }
