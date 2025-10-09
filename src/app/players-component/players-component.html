@@ -1,25 +1,50 @@
 <div class="players-container">
   <h2>Lista de Jugadores</h2>
 
+  <!-- Botón para mostrar u ocultar la lista -->
   <button (click)="showList = !showList">
     {{ showList ? 'Ocultar lista' : 'Mostrar lista' }}
   </button>
 
+  <!-- Filtros de búsqueda -->
+  <div *ngIf="showList" class="filter-container">
+    <input
+      type="text"
+      placeholder="Buscar por nombre"
+      [(ngModel)]="filterName"
+    />
+    <input
+      type="number"
+      placeholder="Altura mínima"
+      [(ngModel)]="filterHeight"
+    />
+  </div>
+
+  <!-- Lista de jugadores filtrada -->
   <div *ngIf="showList; else noPlayers" class="players-grid">
-    <div *ngFor="let player of players; trackBy: trackById" class="player-card" (click)="onSelect(player)" tabindex="0" (keydown.enter)="onSelect(player)" (keydown.space)="onSelect(player)">
-      <img [src]="player.image" [alt]="player.name" class="player-image">
+    <div
+      *ngFor="let player of players | playerFilter:filterName:filterHeight; trackBy: trackById"
+      class="player-card"
+      (click)="onSelect(player)"
+      tabindex="0"
+      (keydown.enter)="onSelect(player)"
+      (keydown.space)="onSelect(player)"
+    >
+      <img [src]="player.image" [alt]="player.nombre" class="player-image" />
       <div class="player-info">
-        <h3>{{ player.name }}</h3>
-        <p><strong>Posición:</strong> {{ player.position }}</p>
-        <p><strong>Edad:</strong> {{ player.age }} años</p>
+        <h3>{{ player.nombre }}</h3>
+        <p><strong>Posición:</strong> {{ player.posicion }}</p>
+        <p><strong>Edad:</strong> {{ player.edad }} años</p>
+        <p><strong>Altura:</strong> {{ player.altura }} cm</p>
       </div>
     </div>
   </div>
 
+  <!-- Mensaje si no hay jugadores -->
   <ng-template #noPlayers>
     <p>No hay jugadores disponibles.</p>
   </ng-template>
 
+  <!-- Detalle del jugador seleccionado -->
   <app-detail-component [player]="selectedPlayer"></app-detail-component>
 </div>
-

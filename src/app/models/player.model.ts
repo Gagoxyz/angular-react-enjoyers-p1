@@ -1,10 +1,12 @@
 export interface Player {
   id: number;
-  name: string;
-  position: string;
-  age: number;
+  nombre: string;
+  apellidos: string;
+  posicion: string;
+  edad: number;
   altura: number;
   image: string;
+  multimedia: string[];
 }
 
 

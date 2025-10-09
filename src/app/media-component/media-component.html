@@ -1,1 +1,36 @@
-<p>media-component works!</p>
+<div class="media-container" *ngIf="player">
+  <h3>Galería de {{ player.nombre }} {{ player.apellidos }}</h3>
+
+  <div class="media-grid">
+    <ng-container *ngFor="let media of player.multimedia">
+      
+      <!-- Imagen -->
+      <img
+        *ngIf="isImage(media)"
+        [src]="media"
+        [alt]="player.nombre"
+        class="player-media"
+      />
+
+      <!-- Vídeo local -->
+      <video
+        *ngIf="isVideo(media)"
+        [src]="media"
+        controls
+        class="player-media"
+      ></video>
+
+      <!-- Vídeo de YouTube -->
+      <iframe
+        *ngIf="isYouTube(media)"
+        [src]="safeYouTubeUrl(media)"
+        width="560"
+        height="315"
+        frameborder="0"
+        allowfullscreen
+        class="player-media"
+      ></iframe>
+
+    </ng-container>
+  </div>
+</div>

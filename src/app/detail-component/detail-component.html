@@ -1,15 +1,31 @@
 <div class="detail-container" *ngIf="player; else empty">
   <div class="detail-card">
-    <img [src]="player.image" [alt]="player.name" class="detail-image">
+    <img [src]="player.image" [alt]="player.nombre" class="detail-image">
+
     <div class="detail-info">
-      <h3>{{ player.name }}</h3>
-      <p><strong>Posición:</strong> {{ player.position }}</p>
-      <p><strong>Edad:</strong> {{ player.age }} años</p>
+      <h3>{{ player.nombre }}</h3>
+      <p><strong>Apellido:</strong> {{ player.apellidos }}</p>
+      <p><strong>Posición:</strong> {{ player.posicion }}</p>
+      <p><strong>Edad:</strong> {{ player.edad }} años</p>
       <p><strong>Altura:</strong> {{ player.altura }} cm</p>
+      
     </div>
   </div>
+
+  <!-- 🔘 Botón para mostrar/ocultar multimedia -->
+  <div class="media-toggle">
+    <button (click)="toggleMedia()">
+      {{ showMedia ? 'Ocultar multimedia' : 'Ver multimedia' }}
+    </button>
+  </div>
+
+  <!-- 🖼️ Aquí se mostrará tu componente con las imágenes -->
+  <app-media-component
+    *ngIf="showMedia"
+    [player]="player">
+  </app-media-component>
+
   <p class="helper-text">Haz clic en otro jugador para cambiar el detalle.</p>
-  
 </div>
 
 <ng-template #empty>

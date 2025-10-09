@@ -10,20 +10,23 @@
   gap: 16px;
 }
 
-.player-card {
-  background: rgba(255,255,255,0.9);
+.player-card  {
+  margin-top: 50px;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   width: 100%;
+  height: 80%;
   transition: transform 0.3s;
 }
 
-.player-card:hover {
+.player-card:focus {
   transform: scale(1.05);
 }
 
 .player-image {
   width: 100%;
+  height: 60%;
   border-radius: 15px 15px 0 0;
 }
 
@@ -49,3 +52,15 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+
+
+  
+
+  
+  
+  
+  
+  
+
+  
