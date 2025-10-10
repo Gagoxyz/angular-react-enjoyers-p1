@@ -1,0 +1,56 @@
+<div class="card shadow-sm prueba1">
+  <div class="container">
+    <!-- Filtros de búsqueda -->
+    <div *ngIf="showList" class="filter-container">
+      <input
+        type="text"
+        placeholder="Buscar por nombre"
+        [(ngModel)]="filterName"
+      />
+      <input
+        type="number"
+        placeholder="Altura mínima"
+        [(ngModel)]="filterHeight"
+      />
+    </div>
+  </div>
+
+  <!-- Encabezado -->
+  <div class="card-header player-component text-white prueba1">
+    <h3 class="mb-0">Listado de Jugadores</h3>
+  </div>
+
+  <!-- Contenido -->
+  <div class="card-body">
+    <div class="row g-3">
+      
+      <!-- ✅ Aquí se aplica el pipe -->
+      @for (player of players | playerFilter: filterName : filterHeight; track player.id) {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div
+            class="card h-100 text-center shadow-sm player-card position-relative"
+            (click)="openDialog(player)"
+            [class.border-primario]="player.id === selectedPlayerId"
+            style="cursor: pointer;"
+          >
+            <!-- Imagen del jugador -->
+            <div class="ratio ratio-1x1 overflow-hidden">
+              <img
+                [src]="player.multimedia[0]"
+                class="card-img-top img-fluid player-img"
+                alt="{{ player.nombre }}"
+              />
+            </div>
+
+            <!-- Nombre del jugador -->
+            <div class="card-body p-2">
+              <h6 class="card-title mb-0">
+                {{ player.nombre }} {{ player.apellidos }}
+              </h6>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>
