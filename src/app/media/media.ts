@@ -1,11 +1,10 @@
 import { Component, Input, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { YouTubePlayerModule, YouTubePlayer } from '@angular/youtube-player';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-media',
   standalone: true,
-  imports: [YouTubePlayerModule, NgIf],
+  imports: [YouTubePlayerModule],
   templateUrl: './media.html',
   styleUrl: './media.css'
 })

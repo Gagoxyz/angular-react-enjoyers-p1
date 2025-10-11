@@ -12,7 +12,7 @@ import { PlayerFilterPipe } from '../player-filter-pipe';
   selector: 'app-players',
   templateUrl: './players.html',
   styleUrls: ['./players.css'],
-  imports: [CommonModule, FormsModule, DetailComponent, PlayerFilterPipe]
+  imports: [CommonModule, FormsModule, PlayerFilterPipe]
 })
 export class PlayersComponent {
   players: Player[] = PLAYERS;
