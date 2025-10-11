@@ -29,11 +29,11 @@
 
 .player-card.border-primario {
   border-color: var(--color-primario);
-  border-width: 3px !important; /* Aumenta el grosor del borde */
+  border-width: 5px !important; /* Aumenta el grosor del borde */
   border-style: solid;           /* Asegura que sea sólido */
 }
 
-.prueba1 {
+.fondo-transparente {
   background: #00000000;
 }
 

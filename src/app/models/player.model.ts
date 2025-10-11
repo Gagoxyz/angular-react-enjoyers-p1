@@ -7,4 +7,5 @@ export interface Player {
   altura: number;
   multimedia: string[];
   youtubeId?: string;
+  info: string;
 }
