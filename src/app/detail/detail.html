@@ -7,36 +7,33 @@
     <h2 class="fw-bold mb-0" style="color: var(--color-primario);">
       {{ player.nombre }} {{ player.apellidos }}
     </h2>
-    <!-- Botón cerrar -->
     <button type="button" class="btn-close" aria-label="Cerrar" (click)="dialogRef.close()"></button>
   </div>
 
-  <!-- Contenido: imagen e información -->
-  <div class="row">
-    
-    <!-- Imagen del jugador -->
-    <div class="col-md-6">
-      <img
-        *ngIf="player"
-        [src]="player.multimedia[0]"
-        [alt]="player.nombre"
-        class="img-fluid rounded shadow-sm"
-        style="max-width: 220px; object-fit: cover; border: 2px solid var(--color-primario);"
-      />
+  <!-- Contenido desplazable -->
+  <div class="card-content-scrollable">
+    <div class="row">
+      <div class="col-md-6">
+        <img
+          *ngIf="player"
+          [src]="player.multimedia[0]"
+          [alt]="player.nombre"
+          class="img-fluid rounded shadow-sm"
+          style="max-width: 220px; object-fit: cover; border: 2px solid var(--color-primario);"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <p class="mb-2" *ngIf="player"><strong>Posición:</strong> {{ player.posicion }}</p>
+        <p class="mb-2" *ngIf="player"><strong>Edad:</strong> {{ player.edad }} años</p>
+        <p class="mb-2" *ngIf="player"><strong>Altura:</strong> {{ player.altura }} cm</p>
+        <p class="mb-2" *ngIf="player"><strong>Información:</strong> {{ player.info }}</p>
+      </div>
     </div>
 
-    <!-- Información del jugador -->
-    <div class="col-md-6">
-      <p class="mb-2" *ngIf="player"><strong>Posición:</strong> {{ player.posicion }}</p>
-      <p class="mb-2" *ngIf="player"><strong>Edad:</strong> {{ player.edad }} años</p>
-      <p class="mb-2" *ngIf="player"><strong>Altura:</strong> {{ player.altura }} cm</p>
-      <p class="mb-2" *ngIf="player"><strong>Información:</strong> {{ player.info }}</p>
+    <div class="row text-center mt-4">
+      <app-media [youtubeId]="player && player.youtubeId ? player.youtubeId : ''"></app-media>
     </div>
-
-  </div>
-
-  <div class="row text-center mt-4">
-    <app-media [youtubeId]="player && player.youtubeId ? player.youtubeId : ''"></app-media>
   </div>
 
 </div>
