@@ -17,7 +17,7 @@ export class MediaComponent implements OnInit, OnDestroy {
   currentTime: number = 0;
   duration: number = 0;
   private updateInterval: number | undefined;
-  private isPlaying = false;
+  public isPlaying = false;
 
   playerVars = {
     controls: 0,
@@ -42,6 +42,30 @@ export class MediaComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.stopTimeUpdate();
   }
+
+  //Añadido para tapar el overlay de Youtube
+
+  overlayHidden: boolean = false;
+
+  onPlayerStateChange(event: any) {
+    const state = event.data;
+    if (state === 1) {
+      this.overlayHidden = true; // oculta el overlay cuando reproduce
+      this.isPlaying = true;
+      this.startTimeUpdate();
+    } else if (state === 2 || state === 0 || state === -1) {
+      this.overlayHidden = false; // muestra overlay al pausar o terminar
+      this.isPlaying = false;
+      this.stopTimeUpdate();
+    }
+  }
+
+  //Añadido que usa nuestro boton play en caso de que se haga click en el overlay de Youtube
+  onOverlayClick() {
+    this.playVideo(); 
+  }
+
+  //Fin del añadido
 
   private startTimeUpdate() {
     if (!this.updateInterval) {

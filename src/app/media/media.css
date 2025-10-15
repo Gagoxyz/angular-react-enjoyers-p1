@@ -10,14 +10,16 @@
 }
 
 youtube-player {
+  display: block; /* Cambiado por el wrapper */
   position: relative;
   width: 100% !important;
-  min-height: 250px; /* Altura mínima fija */
+  height: 100% !important; /* Modificado para ajustar el tamaño a su nuevo contenedor youtube-wrapper */ 
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 0.5rem;
   background-color: black; /* Fondo negro para los bordes */
+  z-index: 2; /* Añadido por el wrapper */
 }
 
 /* Asegurar que el iframe se ajuste al contenedor */
@@ -145,7 +147,7 @@ youtube-player {
 .progress-slider {
   flex: 1;
   height: 4px;
-  -webkit-appearance: none;
+  appearance: none;
   background: #e9ecef;
   border-radius: 2px;
   outline: none;
@@ -175,4 +177,32 @@ youtube-player {
   color: #6c757d;
   min-width: 45px;
   text-align: center;
+}
+
+/* Añadido para el bloqueador del overlay de Youtube */
+
+.youtube-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 250px; /* altura del vídeo */
+}
+
+/* 🔒 Overlay transparente para bloquear clics sobre el iframe */
+.overlay-blocker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: transparent;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+}
+
+/* 👁️ Ocultamos el overlay cuando el vídeo está en reproducción */
+.overlay-blocker.hidden {
+  opacity: 0;
+  pointer-events: none;
 }

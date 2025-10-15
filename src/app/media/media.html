@@ -1,13 +1,25 @@
 <div class="youtube-player-container">
-  <youtube-player
-    #youtubePlayer
-    [videoId]="youtubeId"
-    [height]="250"
-    [width]="450"
-    [playerVars]="playerVars"
-    suggestedQuality="highres"
-    class="youtube-player">
-  </youtube-player>
+  <!-- Apertura del div del bloqueador de Youtube -->
+  <div class="youtube-wrapper">
+    <youtube-player
+      #youtubePlayer
+      [videoId]="youtubeId"
+      [height]="250"
+      [width]="450"
+      [playerVars]="playerVars"
+      suggestedQuality="highres"
+     class="youtube-player">
+    </youtube-player>
+
+
+  <!-- Bloqueador para el overlay de Youtube --> 
+  <div 
+      class="overlay-blocker" 
+      [class.hidden]="isPlaying" 
+      (click)="playVideo()">
+    </div>
+  </div>
+
 
   <!-- Controles personalizados -->
   <div class="custom-controls">
